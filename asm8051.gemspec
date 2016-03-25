@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
     'lib/asm8051/binary.rb',
     'lib/asm8051/hex8.rb',
     'lib/asm8051/hex16.rb',
+    'lib/asm8051.rb',
     'asm8051.gemspec',
     'LICENSE.md',
     'README.md'
