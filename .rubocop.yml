@@ -36,6 +36,9 @@ AsciiComments:
 Lambda:
   Enabled: false
 
+ClassVars:
+  Enabled: false
+
 RegexpLiteral:
   Enabled: false
 

@@ -11,8 +11,11 @@ Gem::Specification.new do |s|
 
   s.files         = [
     'lib/asm8051/binary.rb',
-    'lib/asm8051/hex8.rb',
+    'lib/asm8051/hex.rb',
     'lib/asm8051/hex16.rb',
+    'lib/asm8051/hex8.rb',
+    'lib/asm8051/memory.rb',
+    'lib/asm8051/ra_memory.rb',
     'lib/asm8051.rb',
     'asm8051.gemspec',
     'LICENSE.md',

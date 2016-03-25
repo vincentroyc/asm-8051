@@ -5,7 +5,9 @@ module Asm8051
     attr_accessor :value
 
     def initialize(value)
-      raise Hex8OverflowException, '8 bit hex overflow' if !value.is_a?(String) || value.length > 2
+      raise Hex8InvalidInputValueException, "8 bit hex invalid input value : #{value}" unless value.is_a?(String)
+      raise Hex8OverflowException, "8 bit hex overflow : #{value}" if value.length > 2
+      raise Hex8OverflowException, "8 bit hex overflow : #{value.hex}" if value.hex > 255
       @value = value.hex
     end
 
@@ -59,8 +61,14 @@ module Asm8051
     def to_bits
       @value.to_s(2).rjust(8, '0')
     end
+
+    def ==(other)
+      other.class == self.class && other.to_bits == to_bits
+    end
   end
 
   class Hex8OverflowException < Exception
+  end
+  class Hex8InvalidInputValueException < Exception
   end
 end
