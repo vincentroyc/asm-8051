@@ -1,6 +1,6 @@
 module Asm8051
   class Binary
-    def initialize set
+    def initialize(set)
       @set = set
     end
 
