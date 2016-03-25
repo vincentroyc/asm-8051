@@ -1,5 +1,7 @@
 # asm-8051
 
+<a href="https://travis-ci.org/vincentroyc/asm-8051"><img src="https://travis-ci.org/vincentroyc/asm-8051.png?branch=master" /></a>
+  
 A great way to execute 8051 instruction set on a modern PC!
 
 ## License
