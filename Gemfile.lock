@@ -13,7 +13,7 @@ GEM
     phare (0.7.1)
     powerpack (0.1.1)
     rainbow (2.1.0)
-    rake (10.1.0)
+    rake (11.1.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -42,6 +42,6 @@ PLATFORMS
 DEPENDENCIES
   asm8051!
   phare (~> 0.6)
-  rake
+  rake (~> 11.1)
   rspec (~> 3.1)
   rubocop (~> 0.24)
