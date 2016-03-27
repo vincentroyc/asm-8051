@@ -25,7 +25,7 @@ module Asm8051
     end
 
     def value
-      (@high_byte.value.to_s(16) << @low_byte.value.to_s(16)).hex
+      (@high_byte.value.to_s(16) << @low_byte.value.to_s(16).rjust(2, '0')).hex
     end
   end
 

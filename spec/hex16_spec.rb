@@ -3,11 +3,11 @@ require 'spec_helper'
 describe Asm8051::Hex16 do
   describe :initialize do
     context 'with none string input value' do
-      it { expect { Asm8051::Hex16.new(12) }.to raise_exception }
+      it { expect { Asm8051::Hex16.new(12) }.to raise_exception(Asm8051::Hex16InvalidInputValueException) }
     end
 
     context 'with too long value' do
-      it { expect { Asm8051::Hex16.new('FF11F') }.to raise_exception }
+      it { expect { Asm8051::Hex16.new('FF11F') }.to raise_exception(Asm8051::Hex16OverflowException) }
     end
 
     context 'with correct value' do

@@ -21,6 +21,13 @@ module Asm8051
       @value = @stack.pop
     end
 
+    def movc(hex16)
+      offset_hex_location = Hex16.new((hex16.value + @value).to_s(16))
+      @value = Core.rom.read(offset_hex_location).value
+    end
+
+    # Note : def below this comment are not tested!
+
     def rlc(carry)
       new_value = (to_bits << carry.value.to_s)
       new_value[0].to_i == 1 ? carry.set : carry.unset
