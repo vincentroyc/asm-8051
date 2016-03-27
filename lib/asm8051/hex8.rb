@@ -1,5 +1,5 @@
 module Asm8051
-  class Hex8
+  class Hex8 < Hex
     MAX = 'FF'.hex.freeze
 
     attr_accessor :value
@@ -8,7 +8,17 @@ module Asm8051
       raise Hex8InvalidInputValueException, "8 bit hex invalid input value : #{value}" unless value.is_a?(String)
       raise Hex8OverflowException, "8 bit hex overflow : #{value}" if value.length > 2
       raise Hex8OverflowException, "8 bit hex overflow : #{value.hex}" if value.hex > 255
+      @stack = []
       @value = value.hex
+    end
+
+    def push
+      @stack.push value
+      @value = '0'.hex
+    end
+
+    def pop
+      @value = @stack.pop
     end
 
     def rlc(carry)
