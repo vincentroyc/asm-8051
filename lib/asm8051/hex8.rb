@@ -26,6 +26,11 @@ module Asm8051
       @value = Core.rom.read(offset_hex_location).value
     end
 
+    def inc
+      @value += 1
+      @value = @value - MAX - 1 if @value > MAX
+    end
+
     # Note : def below this comment are not tested!
 
     def rlc(carry)

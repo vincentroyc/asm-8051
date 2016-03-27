@@ -45,4 +45,12 @@ describe Asm8051::Hex8 do
 
     it { expect(acc.value).to eq(Asm8051::Hex8.new('AA').value) }
   end
+
+  describe :inc do
+    let(:hex8) { Asm8051::Hex8.new('FF') }
+
+    before { hex8.inc }
+
+    it { expect(hex8.value).to eq(Asm8051::Hex8.new('0').value) }
+  end
 end
