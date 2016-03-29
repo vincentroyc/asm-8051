@@ -7,6 +7,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.2.0)
+    awesome_print (1.6.1)
     diff-lcs (1.2.5)
     parser (2.3.0.7)
       ast (~> 2.2)
@@ -41,6 +42,7 @@ PLATFORMS
 
 DEPENDENCIES
   asm8051!
+  awesome_print
   phare (~> 0.6)
   rake (~> 11.1)
   rspec (~> 3.1)

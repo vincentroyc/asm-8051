@@ -35,7 +35,7 @@ module Asm8051
 
     def rlc(carry)
       new_value = (to_bits << carry.value.to_s)
-      new_value[0].to_i == 1 ? carry.set : carry.unset
+      new_value[0].to_i == 1 ? carry.set : carry.clr
       @value = new_value[1..8].to_i(2)
     end
 

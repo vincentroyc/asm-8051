@@ -27,4 +27,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop', '~> 0.24'
   s.add_development_dependency 'rspec', '~> 3.1'
   s.add_development_dependency 'rake', '~> 11.1'
+  s.add_development_dependency 'awesome_print'
 end
