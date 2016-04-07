@@ -53,4 +53,22 @@ describe Asm8051::Hex8 do
 
     it { expect(hex8.value).to eq(Asm8051::Hex8.new('0').value) }
   end
+
+  describe :rlv do
+    let(:hex8) { Asm8051::Hex8.new('1') }
+
+    before { hex8.rlc(carry) }
+
+    context 'with set carry' do
+      let(:carry) { Asm8051::Binary.new(true) }
+
+      it { expect(hex8.to_bits).to eq('00000011') }
+    end
+
+    context 'with cleared carry' do
+      let(:carry) { Asm8051::Binary.new(false) }
+
+      it { expect(hex8.to_bits).to eq('00000010') }
+    end
+  end
 end

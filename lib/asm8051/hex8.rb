@@ -31,13 +31,13 @@ module Asm8051
       @value = @value - MAX - 1 if @value > MAX
     end
 
-    # Note : def below this comment are not tested!
-
     def rlc(carry)
       new_value = (to_bits << carry.value.to_s)
       new_value[0].to_i == 1 ? carry.set : carry.clr
       @value = new_value[1..8].to_i(2)
     end
+
+    # Note : def below this comment are not tested!
 
     def add(hex)
       @value += hex.value
