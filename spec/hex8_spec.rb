@@ -54,7 +54,7 @@ describe Asm8051::Hex8 do
     it { expect(hex8.value).to eq(Asm8051::Hex8.new('0').value) }
   end
 
-  describe :rlv do
+  describe :rlc do
     let(:hex8) { Asm8051::Hex8.new('1') }
 
     before { hex8.rlc(carry) }
