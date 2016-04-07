@@ -37,12 +37,14 @@ module Asm8051
       @value = new_value[1..8].to_i(2)
     end
 
-    # Note : def below this comment are not tested!
-
     def add(hex)
       @value += hex.value
-      @value = @value - MAX - 1 if @value > MAX
+      return if @value <= MAX
+      @value = @value - MAX - 1
+      Core.carry.set
     end
+
+    # Note : def below this comment are not tested!
 
     def addc(hex, carry)
       add hex

@@ -10,12 +10,18 @@ module Asm8051
     @@rom = Memory.new
     @@xram = RAMemory.new
 
+    @@carry = Binary.new(false)
+
     def self.rom
       @@rom
     end
 
     def self.xram
       @@xram
+    end
+
+    def self.carry
+      @@carry
     end
   end
 end

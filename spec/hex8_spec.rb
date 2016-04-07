@@ -71,4 +71,27 @@ describe Asm8051::Hex8 do
       it { expect(hex8.to_bits).to eq('00000010') }
     end
   end
+
+  describe :add do
+    let(:hex8) { Asm8051::Hex8.new('F0') }
+
+    before do
+      Asm8051::Core.carry.clr
+      hex8.add(added_hex8)
+    end
+
+    context 'without overflow' do
+      let(:added_hex8) { Asm8051::Hex8.new('F') }
+
+      it { expect(hex8.value).to eq(Asm8051::Hex8.new('FF').value) }
+      it { expect(Asm8051::Core.carry.value).to eq(0) }
+    end
+
+    context 'with overflow' do
+      let(:added_hex8) { Asm8051::Hex8.new('10') }
+
+      it { expect(hex8.value).to eq(Asm8051::Hex8.new('0').value) }
+      it { expect(Asm8051::Core.carry.value).to eq(1) }
+    end
+  end
 end
