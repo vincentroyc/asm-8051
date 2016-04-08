@@ -1,8 +1,6 @@
 module Asm8051
   class Hex8 < Hex
-    MAX = 'FF'.hex.freeze
-
-    attr_accessor :value
+    Hex::MAX = 'FF'.hex.freeze
 
     def initialize(value)
       raise Hex8InvalidInputValueException, "8 bit hex invalid input value : #{value}" unless value.is_a?(String)
@@ -39,18 +37,18 @@ module Asm8051
 
     def add(hex)
       @value += hex.value
-      return if @value <= MAX
-      @value = @value - MAX - 1
-      Core.carry.set
+      Core::carry.clr
+      verify_overflow
+    end
+
+    def addc(hex)
+      @value += hex.value
+      @value += Core::carry.value
+      Core::carry.clr
+      verify_overflow
     end
 
     # Note : def below this comment are not tested!
-
-    def addc(hex, carry)
-      add hex
-      @value += carry.value
-      @value = @value - MAX - 1 if @value > MAX
-    end
 
     def clr
       @value = '00'.hex
