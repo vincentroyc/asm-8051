@@ -48,11 +48,11 @@ module Asm8051
       verify_overflow
     end
 
-    # Note : def below this comment are not tested!
-
     def clr
       @value = '00'.hex
     end
+
+    # Note : def below this comment are not tested!
 
     def mov(hex8)
       @value = hex8.value

@@ -117,4 +117,12 @@ describe Asm8051::Hex8 do
       it { expect(Asm8051::Core.carry.value).to eq(1) }
     end
   end
+
+  describe :clr do
+    let(:hex8) { Asm8051::Hex8.new('5E') }
+
+    before { hex8.clr }
+
+    it { expect(hex8.value).to eq(Asm8051::Hex8.new('0').value) }
+  end
 end
