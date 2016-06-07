@@ -125,4 +125,13 @@ describe Asm8051::Hex8 do
 
     it { expect(hex8.value).to eq(Asm8051::Hex8.new('0').value) }
   end
+
+  describe :mov do
+    let(:a) { Asm8051::Hex8.new('34') }
+    let(:b) { Asm8051::Hex8.new('F3') }
+
+    before { a.mov(b) }
+
+    it { expect(a.value).to eq(b.value) }
+  end
 end
