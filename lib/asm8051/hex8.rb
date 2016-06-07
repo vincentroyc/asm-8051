@@ -56,11 +56,11 @@ module Asm8051
       @value = hex8.value
     end
 
-    # Note : def below this comment are not tested!
-
     def swap
       @value = (to_bits[4..7] << to_bits[0..3]).to_i(2)
     end
+
+    # Note : def below this comment are not tested!
 
     def xch(hex8)
       new_value = hex8.value

@@ -134,4 +134,12 @@ describe Asm8051::Hex8 do
 
     it { expect(a.value).to eq(b.value) }
   end
+
+  describe :swap do
+    let(:a) { Asm8051::Hex8.new('34') }
+
+    before { a.swap }
+
+    it { expect(a.value).to eq(Asm8051::Hex8.new('43').value) }
+  end
 end
