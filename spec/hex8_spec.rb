@@ -142,4 +142,16 @@ describe Asm8051::Hex8 do
 
     it { expect(a.value).to eq(Asm8051::Hex8.new('43').value) }
   end
+
+  describe :xch do
+    let(:a_value) { 'AD' }
+    let(:b_value) { '5E' }
+    let(:a) { Asm8051::Hex8.new(a_value) }
+    let(:b) { Asm8051::Hex8.new(b_value) }
+
+    before { a.xch(b) }
+
+    it { expect(a.value).to eq(b_value.hex) }
+    it { expect(b.value).to eq(a_value.hex) }
+  end
 end
